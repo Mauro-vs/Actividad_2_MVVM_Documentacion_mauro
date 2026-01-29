@@ -1,0 +1,49 @@
+﻿<Window x:Class="Actividad_2_MVVM_mauro.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Actividad_2_MVVM_mauro"
+        mc:Ignorable="d"
+        Title="Menu Inicial" Height="450" Width="550">
+    <Grid Background="#E8EEF3">
+        <Border Background="#FAFAFA" Width="420" Height="320" CornerRadius="12"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Padding="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Polideportivo Ontinyent" Grid.Row="0" FontSize="28" FontWeight="Bold"
+                           Foreground="#2C3E50" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                <Border Grid.Row="1" CornerRadius="8" Background="#BFD7EA" BorderBrush="#9FBBD3"
+                        BorderThickness="1" Height="52" Width="260" HorizontalAlignment="Center" Margin="0,6">
+                    <Button x:Name="btnAbrirSocios"
+                            Command="{Binding AbrirSocio}"
+                            Content="Socios" FontSize="18" Background="Transparent"
+                            BorderThickness="0" FontWeight="Bold"/>
+                </Border>
+
+                <Border Grid.Row="2" CornerRadius="8" Background="#BFD7EA" BorderBrush="#9FBBD3"
+                        BorderThickness="1" Height="52" Width="260" HorizontalAlignment="Center" Margin="0,6">
+                    <Button x:Name="btnAbrirActividades"
+                            Command="{Binding AbrirActividades}"
+                            Content="Actividades" FontSize="18" Background="Transparent"
+                            BorderThickness="0" FontWeight="Bold"/>
+                </Border>
+
+                <Border Grid.Row="3" CornerRadius="8" Background="#BFD7EA" BorderBrush="#9FBBD3"
+                        BorderThickness="1" Height="52" Width="260" HorizontalAlignment="Center" Margin="0,6">
+                    <Button x:Name="btnAbrirReservas"
+                            Command="{Binding AbrirReservas}"
+                            Content="Reservas" FontSize="18" Background="Transparent"
+                            BorderThickness="0" FontWeight="Bold"/>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

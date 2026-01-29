@@ -1,0 +1,168 @@
+﻿<Window x:Class="Actividad_2_MVVM_mauro.View.ReservasWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Actividad_2_MVVM_mauro.View" xmlns:viewmodel="clr-namespace:Actividad_2_MVVM_mauro.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:ReservasViewModel}"
+        mc:Ignorable="d"
+        Title="ReservasWin" Height="450" Width="800">
+    <Grid Background="#E9EDF2">
+
+        <!-- Contenedor principal -->
+        <Border Background="#FFFFFF"
+            CornerRadius="12"
+            Padding="20"
+            Margin="20">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Título -->
+                <TextBlock Text="Gestión de Reservas"
+                       FontSize="26"
+                       FontWeight="Bold"
+                       Foreground="#1F2937"
+                       Margin="5,0,0,15"/>
+
+                <!-- Formulario -->
+                <Border Grid.Row="1"
+                    Background="#F5F7FA"
+                    CornerRadius="8"
+                    Padding="15"
+                    Margin="0,0,0,15">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="220"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="220"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Socio -->
+                        <TextBlock Text="Socio"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               Margin="0,0,5,8"/>
+
+                        <ComboBox x:Name="cbSocios"
+                                  ItemsSource="{Binding Socios}"
+                                  Grid.Row="0"
+                                  Grid.Column="1"
+                                  Height="26"
+                                  DisplayMemberPath="Nombre"
+                                  SelectedValuePath="Id"
+                                  SelectedValue="{Binding SocioId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  Margin="0,0,0,8"/>
+
+                        <!-- Actividad -->
+                        <TextBlock Text="Actividad"
+                               Grid.Row="0"
+                               Grid.Column="3"
+                               Margin="0,0,5,8"/>
+
+                        <ComboBox x:Name="cbActividades"
+                                  ItemsSource="{Binding Actividades}"
+                                  Grid.Row="0"
+                                  Grid.Column="4"
+                                  Height="26"
+                                  DisplayMemberPath="Nombre"
+                                  SelectedValuePath="Id"
+                                  SelectedValue="{Binding ActividadId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  Margin="0,0,0,8"/>
+
+                        <!-- Fecha -->
+                        <TextBlock Text="Fecha"
+                               Grid.Row="1"
+                               Grid.Column="0"/>
+
+                        <DatePicker x:Name="dpFecha"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Height="26"
+                                SelectedDate="{Binding Fecha, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </Grid>
+                </Border>
+
+                <!-- DataGrid -->
+                <DataGrid x:Name="dgReservas"
+                          ItemsSource="{Binding Reservas}"
+                          SelectedItem="{Binding SelectedReserva, Mode=TwoWay}"
+                          Grid.Row="2"
+                          AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          Margin="0,0,0,15">
+
+                    <!-- Id -->
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id"
+                                            Binding="{Binding Id}" />
+
+                        <!-- Socio: muestra el Nombre del socio -->
+                        <DataGridTextColumn Header="Socio"
+                                            Binding="{Binding Socios.Nombre}" />
+
+                        <!-- Actividad: muestra el Nombre de la actividad -->
+                        <DataGridTextColumn Header="Actividad"
+                                            Binding="{Binding Actividades.Nombre}" />
+
+                        <!-- Fecha -->
+                        <DataGridTextColumn Header="Fecha"
+                                            Binding="{Binding Fecha, StringFormat=d}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <!-- Botones -->
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="btnAñadir"
+                            Command="{Binding AgregarReserva}"
+                        Grid.Column="0"
+                        Content="Añadir"
+                        Height="38"
+                        Background="#D1FAE5"
+                        BorderBrush="#10B981"
+                        Margin="5"/>
+
+                    <Button x:Name="btnModificar"
+                            Command="{Binding EditarReserva}"
+                        Grid.Column="1"
+                        Content="Modificar"
+                        Height="38"
+                        Background="#FEF3C7"
+                        BorderBrush="#F59E0B"
+                        Margin="5"/>
+
+                    <Button x:Name="btnEliminar"
+                            Command="{Binding BorrarReserva}"
+                        Grid.Column="2"
+                        Content="Eliminar"
+                        Height="38"
+                        Background="#FEE2E2"
+                        BorderBrush="#EF4444"
+                        Margin="5"/>
+                </Grid>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</Window>
