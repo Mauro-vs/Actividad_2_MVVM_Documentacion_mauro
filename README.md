@@ -1,4 +1,4 @@
-# 🏋️‍♂️ Sistema de Gestión: Centro Deportivo (WPF - MVVM)
+# Sistema de Gestión: Centro Deportivo (WPF - MVVM)
 ## Autores
 - Mauro (Desarrollo y documentación)
 ---
@@ -7,26 +7,26 @@ Aplicación de escritorio desarrollada en **C# y WPF** para la administración i
 
 ---
 
-## 📖 Descripción del Proyecto
+## Descripción del Proyecto
 
 El sistema proporciona una interfaz amigable para que los administradores gestionen el flujo diario del gimnasio. Permite controlar el registro de clientes, configurar las actividades ofertadas y gestionar las reservas de clases, asegurando el cumplimiento de las normativas de aforo.
 
 ### Funcionalidades Principales
 
-* **👥 Gestión de Socios:**
+* ** Gestión de Socios:**
     * CRUD completo (Crear, Leer, Actualizar, Borrar).
     * **Validaciones:** Verificación de campos obligatorios y formato de correo electrónico mediante expresiones regulares (`Regex`).
-* **🧘 Catálogo de Actividades:**
+* ** Catálogo de Actividades:**
     * Administración de servicios (Yoga, Pilates, CrossFit, etc.).
     * Definición de **Aforo Máximo** por actividad.
-* **📅 Sistema de Reservas Inteligente:**
+* ** Sistema de Reservas Inteligente:**
     * **Control de Aforo en Tiempo Real:** El sistema calcula las plazas ocupadas antes de confirmar una reserva. Si la clase está llena, impide la operación.
     * **Validación Temporal:** Bloqueo de reservas en fechas pasadas.
     * Vinculación relacional entre Socios, Actividades y Fechas.
 
 ---
 
-## 🛠️ Tecnologías Usadas
+##  Tecnologías Usadas
 
 * **Lenguaje:** C# (.NET Framework)
 * **Interfaz (UI):** Windows Presentation Foundation (WPF) / XAML
@@ -61,7 +61,7 @@ El sistema proporciona una interfaz amigable para que los administradores gestio
 
 ---
 
-## 📂 Estructura del Proyecto
+## Estructura del Proyecto
 
 La solución se organiza en capas para facilitar el mantenimiento:
 
