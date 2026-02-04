@@ -1,6 +1,7 @@
 # 🏋️‍♂️ Sistema de Gestión: Centro Deportivo (WPF - MVVM)
 ## Autores
 - Mauro (Desarrollo y documentación)
+---
 
 Aplicación de escritorio desarrollada en **C# y WPF** para la administración integral de un centro deportivo. Este proyecto destaca por la implementación estricta del patrón de arquitectura **MVVM (Model-View-ViewModel)**, logrando una separación limpia entre la interfaz de usuario y la lógica de negocio.
 
